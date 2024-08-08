@@ -31,8 +31,8 @@ const userSchema = new Schema(
             ref: 'workout'
         }
     ],
-    // set favorited to be an array of ids from the exercise schema
-    favorited: [
+    // set favorite exercises to be an array of ids from the exercise schema
+    favoriteExercises: [
         {
             type: Schema.Types.ObjectId,
             ref: 'exercise'
