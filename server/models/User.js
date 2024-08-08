@@ -63,6 +63,11 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const User = model('User', userSchema);
+// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
+userSchema.virtual('workoutCount').get(function () {
+  return this.workoutHistory.length;
+});
+
+const User = model('user', userSchema);
 
 module.exports = User;
