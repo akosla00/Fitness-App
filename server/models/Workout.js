@@ -31,4 +31,4 @@ const workoutSchema = new Schema(
 
 const Workout = model('workout', workoutSchema);
 
-module.exports = workoutSchema;
+module.exports = Workout;
