@@ -3,7 +3,7 @@ const { User } = require('../models');
 module.exports = {
     async getSingleUser(req, res) {
         try {
-            const data = User.findOne({ _id: req.params.userId }).populate('favoriteExercises').populate('workoutHistory');
+            const data = await User.findOne({ _id: req.params.userId }).populate('favoriteExercises').populate('workoutHistory');
             res.json(data);
         } catch (err) {
             res.status(500).json(err);
@@ -12,7 +12,7 @@ module.exports = {
 
     async createUser(req, res) {
         try {
-            const data = User.create(req.body);
+            const data = await User.create(req.body);
             res.json(data);
         } catch (err) {
             res.status(500).json(err);
@@ -21,7 +21,7 @@ module.exports = {
 
     async updateUser(req, res) {
         try {
-            const data = User.findOneAndupdate(
+            const data = await User.findOneAndUpdate(
                 { _id: req.params.userId },
                 { $set: req.body },
                 { runValidators: true, new: true }
@@ -34,7 +34,7 @@ module.exports = {
 
     async deleteUser(req, res) {
         try {
-            const data = User.findOneAndDelete({ _id: req.params.userId });
+            const data = await User.findOneAndDelete({ _id: req.params.userId });
             res.json(data);
         } catch (err) {
             res.status(500).json(err);
