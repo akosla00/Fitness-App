@@ -5,10 +5,9 @@ import Auth from './pages/auth'
 
 function App() {
   return (
-    // <>
-    //   <Outlet />
-    // </>
-    <Auth />
+    <>
+      <Outlet />
+    </>
   )
 }
 
