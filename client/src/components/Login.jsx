@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { TextField, FormControl, Button, Link } from "@mui/material";
 // import { Link } from "react-router-dom";
+import { loginUser } from '../utils/API';
+import Auth from '../utils/auth';
 
 const Login = (props) => {
   const { setIsLoggingIn } = props
@@ -9,7 +11,7 @@ const Login = (props) => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     setEmailError(false);
@@ -24,6 +26,22 @@ const Login = (props) => {
 
     if (email && password) {
       console.log(email, password);
+    }
+
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const response = await loginUser({email, password});
+
+      const { token, data } = await response.json();
+      console.log(data);
+      Auth.login(token);
+    } catch (err) {
+      console.log(err);
     }
   };
 
