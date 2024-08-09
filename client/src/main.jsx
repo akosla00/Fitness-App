@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Error from './pages/error.jsx';
 import LandingPage from './pages/landingPage.jsx';
 import DashBoard from './pages/dashBoard.jsx';
+import Exercises from './pages/exercise.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
         path: '/DashBoard',
         element: <DashBoard />,
       },
+      {
+        path: '/exercises',
+        element: <Exercises />
+      }
     ],
   },
 ]);
