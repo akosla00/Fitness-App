@@ -13,9 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
+import {Link} from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Dashboard', 'Blog'];
+const settings = ['Home', 'Dashboard', 'Logout'];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,7 +38,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar sx={{backgroundColor: 'black'}}position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <DirectionsRunIcon 
@@ -60,7 +61,7 @@ function NavBar() {
             FitFlow
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', backgrounfcolor:"black" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', backgroundColor:"black" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -91,7 +92,8 @@ function NavBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  {/* links for nav bar  */}
+                <Link to={page}><Typography textAlign="center">{page}</Typography>  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -114,6 +116,7 @@ function NavBar() {
             }}
           >
             LOGO
+            {/* nav bar creates a nav button for each index for each pages array  */}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -122,7 +125,7 @@ function NavBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link to={page}>{page}</Link>  
               </Button>
             ))}
           </Box>
@@ -149,9 +152,10 @@ function NavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              {/* drop down from profile */}
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                 <Link to={setting}><Typography textAlign="center">{setting}</Typography></Link> 
                 </MenuItem>
               ))}
             </Menu>
