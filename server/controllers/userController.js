@@ -1,26 +1,28 @@
-const { User } = require('../models');
-
-const { signToken } = require('../utils/auth.js');
+const { User } = require("../models");
+const { signToken } = require("../utils/auth");
 
 module.exports = {
-    async getSingleUser(req, res) {
-        try {
-            const data = await User.findOne({ _id: req.params.userId }).populate('favoriteExercises').populate('workoutHistory');
-            res.json(data);
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
+  async getSingleUser(req, res) {
+    try {
+      const data = await User.findOne({ _id: req.params.userId })
+        .populate("favoriteExercises")
+        .populate("workoutHistory");
+      res.json(data);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 
-    async createUser(req, res) {
-        try {
-            const data = await User.create(req.body);
-            res.json(data);
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
+  async createUser(req, res) {
 
+    try {
+      const data = await User.create(req.body);
+      const token = signToken(data);
+      res.json({ token, data });
+    } catch (err) {
+      res.status(500).json("err");
+    }
+  },
     async login(req, res) {
         try {
             const data = await User.findOne({ $or: [{ username: req.body.username }, { email: req.body.email }] });
@@ -54,12 +56,12 @@ module.exports = {
         }
     },
 
-    async deleteUser(req, res) {
-        try {
-            const data = await User.findOneAndDelete({ _id: req.params.userId });
-            res.json(data);
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
-}
+  async deleteUser(req, res) {
+    try {
+      const data = await User.findOneAndDelete({ _id: req.params.userId });
+      res.json(data);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+};

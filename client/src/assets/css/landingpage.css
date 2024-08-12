@@ -1,0 +1,69 @@
+* {
+    margin: none;
+}
+
+.f-picture {
+    max-height: 500px;
+    clip-path: polygon(9% 100%, 44% 0, 92% 1%, 85% 20%, 56% 20%, 51% 37%, 79% 37%, 73% 57%, 46% 57%, 30% 100%);    filter:url(#round);
+}
+
+.hero {
+    background-color:hsla(0,0%,100%,1);
+    background-image:
+    radial-gradient(at 91% 35%, hsla(212,81%,43%,1) 0px, transparent 50%),
+    radial-gradient(at 30% 21%, hsla(86,67%,71%,1) 0px, transparent 50%),
+    radial-gradient(at 99% 88%, hsla(139,66%,71%,1) 0px, transparent 50%),
+    radial-gradient(at 10% 89%, hsla(196,71%,63%,1) 0px, transparent 50%);
+}
+
+.hero h1{
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 60px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+.hero button {
+    padding: 10px 40px;
+    border-style: none;
+    border-radius: 12px;
+    font-size: 24px;
+    background-color: #000000;
+    color: #fff;
+}
+
+
+.hero-text {
+ width: 50%;
+}
+
+.clear{
+    background: radial-gradient(#fff2 30%, #fff4) !important;
+    box-shadow: 5px 5px 10px #0007, -1px -1px 2px #fff, 1px 1px 2px #767676 !important;
+    backdrop-filter: blur(5px);
+    font-size: 30px !important;
+}
+
+#hero-sign-1 {
+    position: absolute;
+    right: 20%;
+    top: -20%;
+}
+#hero-sign-2 {
+    position: absolute;
+    right: -15%;
+    bottom: 50%;
+}
+#hero-sign-3 {
+    position: absolute;
+    left: -15%;
+    bottom: 15%;
+}
+
+.navbar {
+    background-color: #010519 !important;
+}

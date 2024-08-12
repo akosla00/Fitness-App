@@ -7,6 +7,8 @@ import LandingPage from './pages/landingPage.jsx';
 import DashBoard from './pages/dashBoard.jsx';
 import Exercises from './pages/exercise.jsx';
 
+
+//adding a comment here to fix the main jsx
 const router = createBrowserRouter([
   {
     path: '/',
@@ -31,5 +33,5 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+    <RouterProvider router={router} />
 );

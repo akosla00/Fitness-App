@@ -1,0 +1,19 @@
+[
+    {
+      "name": "Bicep Curl",
+      "description": "Hold the barbell with both hands facing up so the wrists, elbows, and shoulders are in a straight line about shoulder-width apart. Lift the barbell toward the shoulders while bending the elbows and keeping them next to the middle of the body. Slowly lower the weight to return to the starting position. Keep chest still, using just the arms for the movement.",
+      "type": "Strength",
+      "muscle": "Biceps",
+      "difficulty": "Beginner",
+      "reps": 3
+    },
+    {
+        "name": "Jogging",
+        "description": "Brian Kernighan",
+        "type": "a",
+        "muscle": "b",
+        "difficulty": "c",
+        "reps": 1
+      }
+  ]
+  
