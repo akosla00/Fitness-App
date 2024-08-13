@@ -23,7 +23,7 @@ function App() {
          
         </a>
       <div className="center-container">
-        <h1>You are your only competition—outdo yourself</h1>
+        <h1>You Are your only competition outdo Yourself</h1>
       </div>
     <Outlet />
       <div className="card">
