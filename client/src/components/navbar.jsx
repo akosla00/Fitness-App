@@ -16,7 +16,7 @@ import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import {Link} from 'react-router-dom';
 
 
-const pages = ['Home', 'Dashboard', 'Blog'];
+const pages = ['Home', 'Dashboard', 'connect'];
 const settings = ['Home', 'Dashboard', 'Logout'];
 
 function NavBar() {
