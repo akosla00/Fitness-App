@@ -6,6 +6,7 @@ import Error from './pages/error.jsx';
 import LandingPage from './pages/landingPage.jsx';
 import DashBoard from './pages/dashBoard.jsx';
 import Exercises from './pages/exercise.jsx';
+import SingleExercise from './pages/singleExercise.jsx';
 
 
 //adding a comment here to fix the main jsx
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/exercises',
         element: <Exercises />
+      },
+      {
+        path: '/exercises/:id',
+        element: <SingleExercise />
       }
     ],
   },

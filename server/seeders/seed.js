@@ -4,7 +4,7 @@ const exerciseSeeds = require('./exerciseSeeds.json');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
-  await cleanDB('Exercise', 'exercise');
+  await cleanDB('Exercise', 'exercises');
 
   await Exercise.create(exerciseSeeds);
 
