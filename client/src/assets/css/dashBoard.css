@@ -1,0 +1,10 @@
+#dash-board-box {
+    background-color: black;
+    padding: 10px;
+    background-color:hsla(0,0%,100%,1);
+    background-image:
+    radial-gradient(at 91% 35%, hsla(212,81%,43%,1) 0px, transparent 50%),
+    radial-gradient(at 30% 21%, hsla(86,67%,71%,1) 0px, transparent 50%),
+    radial-gradient(at 99% 88%, hsla(139,66%,71%,1) 0px, transparent 50%),
+    radial-gradient(at 10% 89%, hsla(196,71%,63%,1) 0px, transparent 50%);
+}

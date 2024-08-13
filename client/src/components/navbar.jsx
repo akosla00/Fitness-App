@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuIcon, Container, Avatar, Button, Tooltip, MenuItem, AdbIcon } from "@mui/material";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,14 +13,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
-import {Link} from 'react-router-dom';
 
+const pages = ['Work Outs', 'Dash Board', 'Plan'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const pages = ['Home', 'Dashboard', 'connect'];
-const settings = ['Home', 'Dashboard', 'Logout'];
-
-function NavBar() {
+function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -39,11 +37,9 @@ function NavBar() {
   };
 
   return (
-    <AppBar sx={{backgroundColor: 'black'}}position="static">
+    <AppBar className='navbar' position="static" sx={{}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <DirectionsRunIcon 
-         sx={{  mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -52,17 +48,17 @@ function NavBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily:  "Anton SC", 
+              fontFamily: "Lexend",
               fontWeight: 700,
               letterSpacing: '.1rem',
-              color: 'white',
+              color: 'inherit',
               textDecoration: 'none',
             }}
           >
             Fit Flex
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', backgroundColor:"black" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -71,7 +67,7 @@ function NavBar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <DirectionsRunIcon />
+              <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -93,8 +89,7 @@ function NavBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  {/* links for nav bar  */}
-                <Link to={page}><Typography textAlign="center">{page}</Typography>  </Link>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -112,12 +107,11 @@ function NavBar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'white',   
+              color: 'inherit',
               textDecoration: 'none',
             }}
           >
             LOGO
-            {/* nav bar creates a nav button for each index for each pages array  */}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -126,14 +120,14 @@ function NavBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link to={page}>{page}</Link>  
+                {page}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 ,  }}   >
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
@@ -153,10 +147,9 @@ function NavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {/* drop down from profile */}
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                 <Link to={setting}><Typography textAlign="center">{setting}</Typography></Link> 
+                  <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -164,6 +157,6 @@ function NavBar() {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  )
 }
-export default NavBar;
+export default Navbar;
