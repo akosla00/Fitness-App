@@ -15,6 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import {Link} from 'react-router-dom';
 
+
 const pages = ['Home', 'Dashboard', 'Blog'];
 const settings = ['Home', 'Dashboard', 'Logout'];
 
@@ -54,11 +55,11 @@ function NavBar() {
               fontFamily:  "Anton SC", 
               fontWeight: 700,
               letterSpacing: '.1rem',
-              color: 'black',
+              color: 'white',
               textDecoration: 'none',
             }}
           >
-            FitFlow
+            Fit Flex
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', backgroundColor:"black" } }}>
@@ -111,7 +112,7 @@ function NavBar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'black',   
+              color: 'white',   
               textDecoration: 'none',
             }}
           >
