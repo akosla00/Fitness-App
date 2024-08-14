@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: '/exercises/:id',
         element: <SingleExercise />
-      }
+      },
       {
         path: '/login',
         element: <Auth />
