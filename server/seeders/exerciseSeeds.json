@@ -1,0 +1,35 @@
+[
+    {
+      "name": "Bicep Curl",
+      "description": "Hold the barbell with both hands facing up so the wrists, elbows, and shoulders are in a straight line about shoulder-width apart. Lift the barbell toward the shoulders while bending the elbows and keeping them next to the middle of the body. Slowly lower the weight to return to the starting position. Keep chest still, using just the arms for the movement.",
+      "type": "Strength",
+      "muscle": "Biceps",
+      "difficulty": "Beginner",
+      "reps": 3
+    },
+    {
+        "name": "Back Squat",
+        "description": "Place a barbell in a rack just below shoulder-height. Dip under the bar to put it behind the neck across the top of the back, and grip the bar with the hands wider than shoulder-width apart. Lift the chest up and squeeze the shoulder blades together to keep the straight back throughout the entire movement. Stand up to bring the bar off the rack and step backwards, then place the feet so that they are a little wider than shoulder-width apart. Sit back into hips and keep the back straight and the chest up, squatting down so the hips are below the knees. From the bottom of the squat, press feet into the ground and push hips forward to return to the top of the standing position.",
+        "type": "Strength",
+        "muscle": "Quadriceps",
+        "difficulty": "Beginner",
+        "reps": 3
+    },
+    {
+        "name": "Push-Press",
+        "description": "Place a barbell in a squat rack so that the bar is slightly lower than shoulder height, and grip the bar with the hands about shoulder-width apart. Dip under the bar to lift it up and rest it on the front of shoulders, then step back away from the rack. Place the feet hip-width apart, and bend at the knees while keeping the back straight. Quickly press the feet into the floor and snap the hips forward while pushing the weight directly overhead with the elbows facing away from the body. Slowly lower the barbell to the shoulders and repeat. The power for moving the weight should come from the hips and transfer through the shoulders and arms.",
+        "type": "Strength",
+        "muscle": "Full-Body",
+        "difficulty": "Beginner",
+        "reps": 3
+    },
+    {
+        "name": "Lunge",
+        "description": "Stand with the feet hip-width apart and grip one dumbbell in each hand with the palms facing each other and the arms straight down by the side. Keep the back straight and step forward with the right leg. As the right foot hits the floor, lower the left knee towards the floor. Descend to a comfortable range of motion; push the right foot into the ground to stand up by bringing both feet back together at the starting position.",
+        "type": "Strength",
+        "muscle": "Butt/Hips, Thighs",
+        "difficulty": "Beginner",
+        "reps": 3
+    }
+  ]
+  
