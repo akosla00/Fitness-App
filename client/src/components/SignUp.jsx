@@ -3,6 +3,8 @@ import { TextField, FormControl, Button, Link } from "@mui/material";
 // import { Link } from "react-router-dom";
 import { createUser } from "../utils/API";
 import Auth from "../utils/auth";
+import { useLoginContext } from "../utils/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
   const { setIsLoggingIn } = props;
@@ -11,6 +13,8 @@ const Signup = (props) => {
   const [username, setUsername] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const { loggedIn, setLoggedIn } = useLoginContext();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,12 +42,16 @@ const Signup = (props) => {
     try {
       const response = await createUser({ email, password, username });
 
-
+      if(!response.ok) {
+        return alert("err")
+      }
 
       const { token, data } = await response.json();
 
       console.log(data);
+      setLoggedIn(true);
       Auth.login(token)
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
