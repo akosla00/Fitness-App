@@ -7,10 +7,12 @@ const {
     deleteWorkout,
 } = require('../../controllers/workoutController.js');
 
-router.route('/').post(createWorkout);
+const { authMiddleware } = require('../../utils/auth.js');
 
-router.route('/:userId').get(getWorkoutsByUser).put(updateWorkout);
+router.route('/').post(authMiddleware, createWorkout);
 
-router.route('/:userId/:workoutId').get(getSingleWorkout).delete(deleteWorkout);
+router.route('/:userId').get(getWorkoutsByUser);
+
+router.route('/:workoutId').get(getSingleWorkout).put(authMiddleware, updateWorkout).delete(authMiddleware, deleteWorkout);
 
 module.exports = router;
