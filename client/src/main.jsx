@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx'
 import Error from './pages/error.jsx';
@@ -18,10 +18,14 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Navigate to="/Home" replace />,
+      },
+      {
+        path: '/Home',
         element: <LandingPage />,
       },
       {
-        path: '/DashBoard',
+        path: '/Dashboard',
         element: <DashBoard />,
       },
       {
