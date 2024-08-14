@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { TextField, FormControl, Button, Link } from "@mui/material";
 // import { Link } from "react-router-dom";
-import { loginUser } from '../utils/API';
-import Auth from '../utils/auth';
+import { loginUser } from "../utils/API";
+import Auth from "../utils/auth";
+import { useLoginContext } from "../utils/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  const { setIsLoggingIn } = props
+  const { setIsLoggingIn } = props;
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const { loggedIn, setLoggedIn } = useLoginContext();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     setEmailError(false);
     setPasswordError(false);
 
@@ -35,11 +38,17 @@ const Login = (props) => {
     }
 
     try {
-      const response = await loginUser({email, password});
-
+      const response = await loginUser({ email, password });
+      if (!response.ok) {
+        return alert("login didnt work");
+      }
       const { token, data } = await response.json();
       console.log(data);
+      console.log(token);
+
+      setLoggedIn(true);
       Auth.login(token);
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
@@ -79,7 +88,9 @@ const Login = (props) => {
       </form>
       <small>
         Need an account?{" "}
-        <Link onClick={() => setIsLoggingIn(false)} sx={{cursor: "pointer"}}>Register here</Link>
+        <Link onClick={() => setIsLoggingIn(false)} sx={{ cursor: "pointer" }}>
+          Register here
+        </Link>
       </small>
     </React.Fragment>
   );

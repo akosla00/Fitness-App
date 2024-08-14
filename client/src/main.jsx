@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Error from './pages/error.jsx';
 import LandingPage from './pages/landingPage.jsx';
 import DashBoard from './pages/dashBoard.jsx';
+import Auth from './pages/auth.jsx';
 
 
 //adding a comment here to fix the main jsx
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         path: '/DashBoard',
         element: <DashBoard />,
       },
+      {
+        path: '/login',
+        element: <Auth />
+      }
     ],
   },
 ]);

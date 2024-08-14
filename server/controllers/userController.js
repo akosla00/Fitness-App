@@ -14,47 +14,57 @@ module.exports = {
   },
 
   async createUser(req, res) {
-
     try {
       const data = await User.create(req.body);
       const token = signToken(data);
       res.json({ token, data });
     } catch (err) {
-      res.status(500).json("err");
+      res.status(500).json(err.message);
     }
   },
-    async login(req, res) {
-        try {
-            const data = await User.findOne({ $or: [{ username: req.body.username }, { email: req.body.email }] });
+  async login(req, res) {
+    try {
+      const data = await User.findOne({
+        $or: [{ username: req.body.username }, { email: req.body.email }],
+      });
 
-            if (!data) {
-                res.status(400).json({ message: 'Incorrect email or password, please try again.'});
-            }
+      if (!data) {
+        console.log(!data, "Data");
 
-            const validPassword = await data.isCorrectPassword(req.body.password);
+        return res
+          .status(400)
+          .json({ message: "Incorrect email or password, please try again." });
+      }
 
-            if (!validPassword) {
-                return res.status(400).json({ message: 'Wrong password!' });
-            }
-            const token = signToken(user);
-            res.json({ token, data });
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
+      const validPassword = await data.isCorrectPassword(req.body.password);
 
-    async updateUser(req, res) {
-        try {
-            const data = await User.findOneAndUpdate(
-                { _id: req.params.userId },
-                { $set: req.body },
-                { runValidators: true, new: true }
-                );
-            res.json(data);
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
+      if (!validPassword) {
+        console.log(!validPassword, "Password");
+        return res.status(400).json({ message: "Wrong password!" });
+      }
+      const token = signToken(data);
+      console.log(token, data);
+
+      res.json({ token, data });
+    } catch (err) {
+      console.log(err.message);
+
+      res.status(500).json(err.message);
+    }
+  },
+
+  async updateUser(req, res) {
+    try {
+      const data = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      );
+      res.json(data);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 
   async deleteUser(req, res) {
     try {
