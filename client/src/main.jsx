@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Error from './pages/error.jsx';
 import LandingPage from './pages/landingPage.jsx';
 import DashBoard from './pages/dashBoard.jsx';
+import WorkoutPage from './pages/WorkoutPage.jsx';
 
 
 //adding a comment here to fix the main jsx
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: '/DashBoard',
         element: <DashBoard />,
+      },
+      {
+        path: '/workouts',
+        element: <WorkoutPage />,
       },
     ],
   },
