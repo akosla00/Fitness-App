@@ -147,13 +147,8 @@ function Navbar() {
           <div>
             {!loggedIn ? (
               <div>
-                <Button variant="contained">
-                  <Link
-                    to="/login"
-                    style={{ textDecoration: "none", color: "#FFFFFF" }}
-                  >
-                    Login
-                  </Link>
+                <Button variant="contained" onClick={() => {navigate('/login')}}>
+                  Login
                 </Button>
               </div>
             ) : (
