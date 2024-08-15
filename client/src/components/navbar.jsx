@@ -27,7 +27,7 @@ function Navbar() {
   const settings = [
     { label: "Profile", onClick: () => navigate("/profile") },
     { label: "Account", onClick: () => navigate("/account") },
-    { label: "Dashboard", onClick: () => {navigate("/dashboard")} },
+    { label: "Dashboard", onClick: () => navigate("/dashboard") },
     {
       label: "Logout",
       onClick: () => {
