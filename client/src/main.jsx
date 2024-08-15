@@ -5,6 +5,8 @@ import App from './App.jsx'
 import Error from './pages/error.jsx';
 import LandingPage from './pages/landingPage.jsx';
 import DashBoard from './pages/dashBoard.jsx';
+import Exercises from './pages/exercise.jsx';
+import SingleExercise from './pages/singleExercise.jsx';
 import Auth from './pages/auth.jsx';
 
 
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: '/Dashboard',
         element: <DashBoard />,
+      },
+      {
+        path: '/exercises',
+        element: <Exercises />
+      },
+      {
+        path: '/exercises/:id',
+        element: <SingleExercise />
       },
       {
         path: '/login',
