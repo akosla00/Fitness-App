@@ -74,7 +74,7 @@ const Login = (props) => {
           onSubmit={handleSubmit}
           style={{ width: "25%", marginLeft: 300, marginTop: 100 }}
         >
-          <h2>Login Form</h2>
+          <h2>Welcome back to Fit Flex!</h2>
           <TextField
             label="Email"
             onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +82,7 @@ const Login = (props) => {
             variant="outlined"
             color="secondary"
             type="email"
-            sx={{ mb: 3, width: "75%", display: "flex" }}
+            sx={{ mb: 3, width: "80%", display: "flex" }}
             fullWidth
             value={email}
             error={emailError}
@@ -97,7 +97,7 @@ const Login = (props) => {
             value={password}
             error={passwordError}
             fullWidth
-            sx={{ mb: 3, width: "75%", display: "flex" }}
+            sx={{ mb: 3, width: "80%", display: "flex" }}
           />
           <Button
             variant="outlined"
@@ -121,7 +121,7 @@ const Login = (props) => {
       <Box>
         <img
           src={hoopsMan}
-          style={{ maxHeight: 700, marginTop: 3, borderRadius: 4 }}
+          style={{ maxHeight: 700, marginTop: 3, marginLeft: 10, borderRadius: 4 }}
         />
       </Box>
     </div>
