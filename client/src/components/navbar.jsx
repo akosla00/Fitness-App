@@ -22,7 +22,11 @@ import Auth from '../utils/auth';
 function Navbar() {
   const navigate = useNavigate();
 
-  const pages = ["Work Outs", "Dash Board", "Plan"];
+  const pages = [
+    { label: "Exercises", onClick: () => navigate("/exercises") },
+    { label: "Dashboard", onClick: () => navigate("/Dashboard") },
+    { label: "Plans", onClick: () => navigate("/Plans") },
+  ]
   // const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const settings = [
     { label: "Profile", onClick: () => navigate("/profile") },
@@ -108,8 +112,8 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.label} onClick={page.onClick}>
+                  <Typography textAlign="center">{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -135,11 +139,11 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.label}
+                onClick={page.onClick}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {page.label}
               </Button>
             ))}
           </Box>
