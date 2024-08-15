@@ -35,7 +35,7 @@ function SingleExercise() {
                 <CardContent>
                     <Typography sx={{ fontSize: 52 }}>{name}</Typography>
                     <Typography sx={{ fontSize: 16 }}>{muscle}</Typography>
-                    <Typography sx={{ fontSize: 16 }}>{difficulty}</Typography>
+                    <Typography sx={{ fontSize: 16, color: 'red' }}>{difficulty}</Typography>
                     <Typography sx={{ fontSize: 24 }}>{description}</Typography>
                     <a href="/exercises"><Button size="small">Back to Exercise List</Button></a>
                 </CardContent>
