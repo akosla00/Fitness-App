@@ -40,7 +40,7 @@ const Login = (props) => {
     try {
       const response = await loginUser({ email, password });
       if (!response.ok) {
-        return alert("login didnt work");
+        return alert("Username/Password not found.");
       }
       const { token, data } = await response.json();
       console.log(data);
