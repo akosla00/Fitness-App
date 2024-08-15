@@ -3,14 +3,17 @@ import { Outlet } from 'react-router-dom';
 // import Auth from './pages/auth'
 // import './App.css'
 import Navbar from './components/Navbar';
+import LoginProvider from './utils/LoginContext';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <LoginProvider>
+        <Navbar />
+        <Outlet />
+      </LoginProvider>
     </>
-  )
+  );
 }
 
 export default App

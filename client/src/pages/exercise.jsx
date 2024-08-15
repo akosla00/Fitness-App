@@ -29,9 +29,19 @@ const getExerciseData = async () => {
     return data;
 }
 
+const postExerciseData = async (userData) => {
+    const data = await fetch('/api/exercises', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+    });
+};
+
 function Exercises() {
     const [exerciseData, setExerciseData] = useState([]);
-    const [formDifficulty, setFormDifficulty] = useState('');
+    const [userFormData, setUserFormData] = useState({ name: '', description: '', type: '', difficulty: '', muscle: '' });
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -42,13 +52,30 @@ function Exercises() {
         setExerciseData(response);
     }
 
-    const handleChange = (event) => {
-        setFormDifficulty(event.target.value);
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setUserFormData({ ...userFormData, [name]: value });
+        // console.log(userFormData);
+      };
+
+    const handleSubmitExercise = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await postExerciseData(userFormData);
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error(error.message);
+        }
+
+        setUserFormData({ name: '', description: '', type: '', difficulty: '', muscle: '' });
+
+        window.location.reload();
     };
 
     useEffect(() => {
         useTheUseState();
-        setFormDifficulty('Difficulty');
     }, [])
 
     return (
@@ -63,21 +90,36 @@ function Exercises() {
                     aria-describedby="modal-modal-description"
                 >
                     <Box component="form" sx={style}>
+                        <Typography sx={{ fontSize: 26 }}>Enter a New Exercise</Typography>
                         <FormControl fullWidth>
-                            <TextField id="outlined-basic" label="Exercise Name" variant="outlined" />
-                            <TextField id="outlined-basic" label="Exercise Description" variant="outlined" />
-                            <TextField id="outlined-basic" label="Muscle Group" variant="outlined" />
+                            <TextField name='name' value={userFormData.name} onChange={handleInputChange} id="exerciseName" label="Exercise Name" variant="outlined" />
+                            <TextField name='description' value={userFormData.description} onChange={handleInputChange} id="exerciseDescription" label="Exercise Description" variant="outlined" />
+                            <TextField name='muscle' value={userFormData.muscle} onChange={handleInputChange} id="exerciseMuscleGroup" label="Muscle Group" variant="outlined" />
                             <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={formDifficulty}
-                                label="Difficulty"
-                                onChange={handleChange}
+                                labelId="exerciseDifficultyLabel"
+                                id="exerciseDifficulty"
+                                name='difficulty'
+                                value={userFormData.difficulty}
+                                label=''
+                                onChange={handleInputChange}
                             >
-                                <MenuItem value={10}>Beginner</MenuItem>
-                                <MenuItem value={20}>Intermediate</MenuItem>
-                                <MenuItem value={30}>Advanced</MenuItem>
+                                <MenuItem value={'Beginner'}>Beginner</MenuItem>
+                                <MenuItem value={'Intermediate'}>Intermediate</MenuItem>
+                                <MenuItem value={'Advanced'}>Advanced</MenuItem>
                             </Select>
+                            <Select
+                                labelId="exerciseTypeLabel"
+                                id="exerciseType"
+                                name='type'
+                                value={userFormData.type}
+                                label="Exercise Type"
+                                onChange={handleInputChange}
+                            >
+                                <MenuItem value={'Strength'}>Strength</MenuItem>
+                                <MenuItem value={'Cardio'}>Cardio</MenuItem>
+                                <MenuItem value={'Recovery/Mobility'}>Recovery/Mobility</MenuItem>
+                            </Select>
+                            <Button onClick={handleSubmitExercise} type='submit' size="large">Submit New Exercise</Button>
                         </FormControl>
                     </Box>
                 </Modal>
