@@ -39,8 +39,9 @@ const Login = (props) => {
 
     try {
       const response = await loginUser({ email, password });
+
       if (!response.ok) {
-        return alert("login didnt work");
+        return alert("Email/Password did not work.");
       }
       const { token, data } = await response.json();
       console.log(data);
