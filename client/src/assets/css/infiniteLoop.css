@@ -48,3 +48,68 @@
     margin: 0 150px;
     filter: invert(1);
 }
+
+@media (max-width: 1000px) {
+    .exercise-loop-box {
+        overflow: hidden;
+        padding: 10px 0;
+        white-space: nowrap;
+        position: relative;
+        background-color: black;
+    }
+
+    .exercise-loop-box:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100%;
+        background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%);
+        content: '';
+        z-index: 2;
+    }
+
+    .exercise-loop-box::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 100%;
+        background: linear-gradient(260deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%);
+        content: '';
+        z-index: 2;
+    }
+
+    .exercise-loop {
+        display: inline-block;
+        animation: 20s loop infinite linear;
+    }
+
+    .exercise-loop img {
+        height: 50px;
+        margin: 0 40px;
+        filter: invert(1);
+    }
+}
+
+@media (max-width: 1787px) {
+    .hero h1{
+        font-family: "Lexend", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .hero button {
+        padding: 10px 40px;
+        border-style: none;
+        border-radius: 12px;
+        font-size: 24px;
+        background-color: #000000;
+        color: #fff;
+    }
+  }

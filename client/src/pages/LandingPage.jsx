@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 
 // Import the infinite loop
 import InfiniteLoop from '../components/InfiniteLoop';
+import Footer from '../components/Footer'
 
 
 const DemoPaper = styled(Paper)(({ theme }) => ({
@@ -35,7 +36,7 @@ function LandingPage () {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sed facere dolorum consectetur earum sapiente soluta eum quos, quia iure quibusdam laboriosam culpa dignissimos aut delectus inventore iste ipsa placeat!</p>
                     <button>Start Now</button>
                 </Box>
-                <Box sx={{position: 'relative'}}>
+                <Box className="landing-picture-container" sx={{position: 'relative'}}>
                     <img className='f-picture' src={squat}/>
                     <DemoPaper id="hero-sign-1" className='clear' variant="elevation">Set Goals!</DemoPaper>
                     <DemoPaper id="hero-sign-2" className='clear' variant="elevation">Workout plans!</DemoPaper>
@@ -43,6 +44,18 @@ function LandingPage () {
                 </Box>    
             </Box>
             <InfiniteLoop/>
+            <Box>
+                <Box>
+                    <h1>Feature 1 of website</h1>
+                </Box>
+                <Box>
+                    <h1>Feature 2 of website</h1>
+                </Box>
+                <Box>
+                    <h1>Feature 3 of website</h1>
+                </Box>
+            </Box>
+            <Footer />
         </div>
     )
 }

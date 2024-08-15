@@ -2,8 +2,14 @@
     margin: none;
 }
 
+.landing-picture-container{
+    width: 50%;
+}
+
+
 .f-picture {
-    max-height: 500px;
+    width: 80%;
+    min-height: 200px;
     clip-path: polygon(9% 100%, 44% 0, 92% 1%, 85% 20%, 56% 20%, 51% 37%, 79% 37%, 73% 57%, 46% 57%, 30% 100%);    filter:url(#round);
 }
 
@@ -50,12 +56,12 @@
 
 #hero-sign-1 {
     position: absolute;
-    right: 20%;
-    top: -20%;
+    left: 1%;
+    top: 10%;
 }
 #hero-sign-2 {
     position: absolute;
-    right: -15%;
+    right: 1%;
     bottom: 50%;
 }
 #hero-sign-3 {
@@ -67,3 +73,10 @@
 .navbar {
     background-color: #010519 !important;
 }
+
+@media (max-width: 1500px) {
+    .landing-picture-container {
+        display:none;
+        clip-path: polygon(9% 100%, 44% 0, 92% 1%, 85% 20%, 56% 20%, 51% 37%, 79% 37%, 73% 57%, 46% 57%, 30% 100%);    filter:url(#round);
+    }
+  }
