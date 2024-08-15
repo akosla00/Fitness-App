@@ -1,5 +1,7 @@
 import {useState, Fragment} from 'react';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Box, Slider, Stack} from '@mui/material';
+import dayjs from 'dayjs';
+
 
 // import child components
 import MultipleSelect from './ExerciseMultiSelect';
@@ -12,6 +14,12 @@ function valuetext(value) {
 
 export default function FormDialog() {
   const [open, setOpen] = useState(false);
+  const [nameInput, setNameInput] = useState('');
+  const [startTime, setStartTime] = useState();
+  const [endTime, setEndTime] = useState();
+  const [exercises, setExercises] = useState([]);
+  const [exerciseId, setExerciseId] = useState([]);
+  const [numOfSets, setNumOfSets] = useState(0);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,6 +28,16 @@ export default function FormDialog() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleSubmit = () => {
+    const formData = {
+      name: nameInput,
+      exercises: exercises,
+      sets: numOfSets
+    }
+
+    console.log(formData)
+  }
 
   return (
     <Fragment>
@@ -33,11 +51,8 @@ export default function FormDialog() {
           component: 'form',
           onSubmit: (event) => {
             event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            console.log(formData)
-            const formJson = Object.fromEntries(formData.entries());
-            console.log(formJson)
-            handleClose();
+            handleSubmit();
+            // handleClose();
           },
         }}
       >
@@ -54,13 +69,15 @@ export default function FormDialog() {
               type="name"
               fullWidth
               variant="standard"
+              value={nameInput}
+              onChange={(e) => setNameInput(e.target.value)}
             />
           </Box>
 
           <Box display="flex">
             <Box>
               <Typography gutterBottom>Start Time</Typography>
-              <DateTime label={"Start time"}/>
+              <DateTime label={"Start time"} state={startTime} setState={(e) => setStartTime(e.target.value)}/>
             </Box>
 
             <Box>
@@ -71,7 +88,8 @@ export default function FormDialog() {
           
           <Box>
             <Typography gutterBottom>Exercises</Typography>
-            <MultipleSelect />
+            <MultipleSelect state={exercises} setState={(e, obj) => {setExercises(e.target.value) 
+              setExerciseId(obj.key)}}/>
           </Box>
 
           <Box sx={{ width: "100%" }}>
@@ -86,6 +104,8 @@ export default function FormDialog() {
               marks
               min={0}
               max={20}
+              value={numOfSets}
+              onChange={(e) => setNumOfSets(e.target.value)}
             />
           </Box>
 

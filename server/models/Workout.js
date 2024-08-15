@@ -26,6 +26,10 @@ const workoutSchema = new Schema(
         type: Date,
         default: Date.now,
         get: timestamp => dayjs(timestamp).format("MM/DD/YYYY, h:mm A")
+    },
+    premade: {
+      type: Boolean,
+      default: false
     }
   },
    // set this to use virtual below

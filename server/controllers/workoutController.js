@@ -10,6 +10,15 @@ module.exports = {
         }
     },
 
+    async getPremadeWorkouts(req, res) {
+        try {
+            const data = await Workout.find({ premade: true }).populate('exercises');
+            res.json(data);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
     async createWorkout(req, res) {
         try {
             const data = await Workout.create(req.body);

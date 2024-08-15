@@ -36,3 +36,11 @@ export const getExercises = async () => {
   const data = await response.json();
   return data;
 }
+
+export const getPremadeWorkouts = async () => {
+  const response = await fetch('/api/workouts', {
+      method: 'GET',
+  });
+  const data = await response.json();
+  return data;
+}

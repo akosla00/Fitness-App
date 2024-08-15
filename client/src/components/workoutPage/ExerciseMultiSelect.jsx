@@ -20,28 +20,28 @@ const MenuProps = {
 
 const names = await getExercises();
 
-function getStyles(name, exerciseName, theme) {
-  return {
-    fontWeight:
-      exerciseName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
+// function getStyles(name, state, theme) {
+//   return {
+//     fontWeight:
+//       state.indexOf(name) === -1
+//         ? theme.typography.fontWeightRegular
+//         : theme.typography.fontWeightMedium,
+//   };
+// }
 
-export default function MultipleSelect() {
+export default function MultipleSelect({state, setState}) {
   const theme = useTheme();
-  const [exerciseName, setExerciseName] = React.useState([]);
+  // const [exerciseName, setExerciseName] = React.useState([]);
 
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setExerciseName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
+  // const handleChange = (event) => {
+  //   const {
+  //     target: { value },
+  //   } = event;
+  //   setState(
+  //     // On autofill we get a stringified value.
+  //     typeof value === 'string' ? value.split(',') : value,
+  //   );
+  // };
 
   return (
     <div>
@@ -51,16 +51,17 @@ export default function MultipleSelect() {
           labelId="demo-multiple-name-label"
           id="demo-multiple-name"
           multiple
-          value={exerciseName}
-          onChange={handleChange}
+          value={state}
+          onChange={setState}
           input={<OutlinedInput label="Select option(s)" />}
           MenuProps={MenuProps}
         >
-          {names.map(({name}) => (
+          {names.map(({name, _id}) => (
             <MenuItem
-              key={name}
+              key={_id}
+              id={_id}
               value={name}
-              style={getStyles(name, exerciseName, theme)}
+              // style={getStyles(name, state, theme)}
             >
               {name}
             </MenuItem>
