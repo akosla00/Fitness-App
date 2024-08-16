@@ -1,5 +1,5 @@
-import AddWorkout from '../components/workoutPage/addWorkout'
-import WorkoutPlans from '../components/workoutPage/WorkoutPlans'
+import AddWorkout from '../components/workoutPage/AddWorkout.jsx'
+import WorkoutPlans from '../components/workoutPage/WorkoutPlans.jsx'
 
 
 function WorkoutPage() {
