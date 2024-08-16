@@ -2,9 +2,9 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx'
-import Error from './pages/error.jsx';
-import LandingPage from './pages/landingPage.jsx';
-import DashBoard from './pages/dashBoard.jsx';
+import Error from './pages/Error.jsx';
+import LandingPage from './pages/LandingPage.jsx';
+import DashBoard from './pages/DashBoard.jsx';
 import Exercises from './pages/exercise.jsx';
 import SingleExercise from './pages/singleExercise.jsx';
 import Auth from './pages/auth.jsx';
