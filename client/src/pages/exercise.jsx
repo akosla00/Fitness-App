@@ -10,6 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -30,7 +31,7 @@ const getExerciseData = async () => {
 }
 
 const postExerciseData = async (userData) => {
-    const data = await fetch('/api/exercises', {
+    return  fetch('/api/exercises', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
