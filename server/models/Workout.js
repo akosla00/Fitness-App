@@ -7,10 +7,6 @@ const workoutSchema = new Schema(
         type: String,
         required: true,
     },
-    length: {
-        type: Number,
-        required: true,
-    },
     exercises: [
         {
             type: Schema.Types.ObjectId,
@@ -21,13 +17,33 @@ const workoutSchema = new Schema(
         type: Number,
         required: true
     },
-    createdAt: {
+    start_time: {
         type: Date,
         default: Date.now,
         get: timestamp => dayjs(timestamp).format("MM/DD/YYYY, h:mm A")
     },
+    end_time: {
+        type: Date,
+        default: Date.now,
+        get: timestamp => dayjs(timestamp).format("MM/DD/YYYY, h:mm A")
+    },
+    premade: {
+      type: Boolean,
+      default: false
+    }
   },
+   // set this to use virtual below
+   {
+    toJSON: {
+      virtuals: true,
+    },
+  }
 );
+
+// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
+workoutSchema.virtual('workoutDuration').get(function () {
+    return this.end_time - this.start_time;
+  });
 
 const Workout = model('workout', workoutSchema);
 

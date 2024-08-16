@@ -8,6 +8,7 @@ import DashBoard from './pages/dashBoard.jsx';
 import Exercises from './pages/exercise.jsx';
 import SingleExercise from './pages/singleExercise.jsx';
 import Auth from './pages/auth.jsx';
+import WorkoutPage from './pages/WorkoutPage.jsx';
 
 
 //adding a comment here to fix the main jsx
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Auth />
+      },
+      {
+        path: '/workouts',
+        element: <WorkoutPage />
       }
     ],
   },
