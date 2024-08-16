@@ -1,9 +1,15 @@
+import { useState, useEffect } from "react";
 import { getPremadeWorkouts } from "../../utils/API";
+
 import { Typography, Card, CardActions, CardContent, List, ListItem, ListItemText, Button } from '@mui/material';
 
-const workouts = await getPremadeWorkouts();
 
 export default function WorkoutPlans() {
+    const [workouts, setWorkouts] = useState([]);
+    useEffect(async () => {
+        const data = await getPremadeWorkouts();
+        setWorkouts(data);
+    }, []);
     return (
         <>
             <Typography variant="h4">Try some of our premade workouts!</Typography>
