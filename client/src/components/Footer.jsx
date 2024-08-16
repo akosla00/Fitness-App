@@ -18,7 +18,7 @@ function Footer () {
                     <li>Link your github here</li>
                     <li>Link your github here</li>
                     <li>Link your github here</li>
-                    <li>Link your github here</li>
+                    <li><a href="https://github.com/lyoko90210">Daniel Dennis's Github</a></li>
             </Box>
         </Box>
     )    
