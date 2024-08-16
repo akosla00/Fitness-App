@@ -28,3 +28,19 @@ export const loginUser = (userData) => {
     body: JSON.stringify(userData),
   });
 };
+
+export const getExercises = async () => {
+  const response = await fetch('/api/exercises', {
+      method: 'GET',
+  });
+  const data = await response.json();
+  return data;
+}
+
+export const getPremadeWorkouts = async () => {
+  const response = await fetch('/api/workouts', {
+      method: 'GET',
+  });
+  const data = await response.json();
+  return data;
+}
