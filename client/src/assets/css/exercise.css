@@ -1,0 +1,17 @@
+#exercise-page {
+    background-color: rgb(28, 28, 28);
+    padding: 50px;
+}
+
+#exercise-page h1{
+    font-family: "Lexend", sans-serif;
+    padding: 20px;
+    color: white;
+
+}
+
+#add-button {
+    background-color: rgb(55, 148, 215);
+    color: black;
+    width: 300px;
+}
