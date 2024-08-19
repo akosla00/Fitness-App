@@ -30,6 +30,54 @@
         "muscle": "Butt/Hips, Thighs",
         "difficulty": "Beginner",
         "reps": 3
+    },
+    {
+        "name": "Chest Press",
+        "description": "Lie face up on a flat bench, and grip a barbell with the hands slightly wider than shoulder-width. Press the feet into the ground and the hips into the bench while lifting the bar off the rack. Slowly lower the bar to the chest by allowing the elbows to bend out to the side. Stop when the elbows are just below the bench, and press feet into the floor to press the weight straight up to return to the starting position.",
+        "type": "Strength",
+        "muscle": "Arms, Chest, Shoulders",
+        "difficulty": "Beginner",
+        "reps": 3
+    },
+    {
+        "name": "Bear Crawl Exercise",
+        "description": "Start in a push-up position with the hands shoulder-width apart and the legs straight out directly behind the body about hip-width apart, keeping the knees bent. Push the toes of the left foot into the floor while squeezing the right thigh and glute. Move the left hand and the right leg forward to start crawling. Alternate the arm and leg movements while keeping the back straight and the hips and shoulders at the same height. Crawl for a desired distance.",
+        "type": "Cardio",
+        "muscle": "Full Body/Integrated",
+        "difficulty": "Intermediate",
+        "reps": 1
+    },
+    {
+        "name": "Calf Raises",
+        "description": "Place a barbell in a rack at about shoulder-height. Dip under the bar so that it rests behind the neck across the top of the back and shoulder blades, and grip the bar with the hands just outside the shoulders. Raise the chest and squeeze the shoulder blades together to maintain a straight back throughout the entire movement. Stand up to bring the bar off the rack and step backwards, placing both feet approximately hip-width apart and squarely set on the floor with the toes pointed forward. (Tip: for more development on the outside of calves point feet slightly inwards.) Keep a slight bend in knees, and press the toes into the ground while lifting the heels up. Pause at the top, and slowly roll the heels back down to the floor, then pause again and repeat for the desired number of repetitions.",
+        "type": "Strength",
+        "muscle": "Legs - Calves and Shins",
+        "difficulty": "Intermediate",
+        "reps": 3
+    },
+    {
+        "name": "Goblet Squat",
+        "description": "Stand with the feet hip-width apart and grip one dumbbell in each hand with the palms facing each other and the arms straight down by the side. Keep the back straight and step forward with the right leg. As the right foot hits the floor, lower the left knee towards the floor. Descend to a comfortable range of motion; push the right foot into the ground to stand up by bringing both feet back together at the starting position.",
+        "type": "Strength",
+        "muscle": "Butt/Hips, Legs - Thighs",
+        "difficulty": "Intermediate",
+        "reps": 3
+    },
+    {
+        "name": "Asynchronous Waves",
+        "description": "Securely attach a heavy rope to an anchor point, grab one end of the rope in each hand with the palms down. Stand with the feet about shoulder-width apart with both the hips and knees slightly bent, and hold both lines of rope directly in front. Hold one end of the rope in each hand and keep the elbows close to the body. Lift the right arm up quickly before snapping it down to create a wave down the rope. As the right arm comes down quickly, lift the left arm at the same time to start moving the left side of the rope. Alternate arms to explosively snap the rope up and down for the duration of the exercise.",
+        "type": "Cardio",
+        "muscle": "Full Body/Integrated",
+        "difficulty": "Advanced",
+        "reps": 3
+    },
+    {
+        "name": "Bent-over Row",
+        "description": "Grip a barbell with palms down so that the wrists, elbows, and shoulders are in a straight line. Lift the bar from the rack, bend forward at the hips, and keep the back straight with a slight bend in the knees. Lower the bar towards the floor until the elbows are completely straight, and keep the back flat as the bar is pulled towards the belly button. Then slowly lower the bar to the starting position and repeat. ",
+        "type": "Strength",
+        "muscle": "Arms, Back, Shoulders",
+        "difficulty": "Advanced",
+        "reps": 3
     }
   ]
   
