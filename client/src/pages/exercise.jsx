@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { styled } from '@mui/material/styles';
 
 // Import styling css
-import '../assets/css/exercise.css'
+import '../assets/css/exerciseAndWorkout.css'
 
 const style = {
     position: 'absolute',

@@ -3,11 +3,11 @@
     padding: 50px;
 }
 
-#exercise-page h1{
+#exercise-page h1, h2{
     font-family: "Lexend", sans-serif;
     padding: 20px;
     color: white;
-
+    text-align: "center";
 }
 
 #add-button {

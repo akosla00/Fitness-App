@@ -1,11 +1,13 @@
-import {useState, Fragment} from 'react';
+import {useState, useEffect, Fragment} from 'react';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Box, Slider, Stack} from '@mui/material';
 import dayjs from 'dayjs';
-
 
 // import child components
 import MultipleSelect from './ExerciseMultiSelect';
 import DateTime from './DateTime';
+
+import { addWorkout, getMe } from '../../utils/API';
+import Auth from '../../utils/auth';
 
 
 function valuetext(value) {
@@ -15,11 +17,41 @@ function valuetext(value) {
 export default function FormDialog() {
   const [open, setOpen] = useState(false);
   const [nameInput, setNameInput] = useState('');
-  const [startTime, setStartTime] = useState();
-  const [endTime, setEndTime] = useState();
+  const [startTime, setStartTime] = useState(dayjs());
+  const [endTime, setEndTime] = useState(dayjs());
   const [exercises, setExercises] = useState([]);
   const [exerciseId, setExerciseId] = useState([]);
   const [numOfSets, setNumOfSets] = useState(0);
+  const [userData, setUserData] = useState({});
+
+  // use this to determine if `useEffect()` hook needs to run again
+  const userDataLength = Object.keys(userData).length;
+
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+          return false;
+        }
+
+        const response = await getMe(token);
+
+        if (!response.ok) {
+          throw new Error('something went wrong!');
+        }
+
+        const user = await response.json();
+        console.log(user)
+        setUserData(user);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getUserData();
+  }, [userDataLength]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,21 +61,49 @@ export default function FormDialog() {
     setOpen(false);
   };
 
-  const handleSubmit = () => {
-    const formData = {
-      name: nameInput,
-      exercises: exercises,
-      sets: numOfSets
+  const handleSubmit = async () => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
     }
 
-    console.log(formData)
+    const formData = {
+      name: nameInput,
+      start_time: startTime,
+      end_time: endTime,
+      exercises: exerciseId,
+      sets: numOfSets,
+      user_id: userData._id
+    }
+
+    console.log(formData);
+    try {
+      const response = await addWorkout(formData, token);
+
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+
+      const workout = await response.json();
+
+      setUserData(workout);
+      console.log(workout)
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
     <Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        + Add Workout
-      </Button>
+      <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+      }}>
+        <Button id='add-button' onClick={handleClickOpen}>
+          Add a Workout
+        </Button>
+      </Box>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -52,7 +112,7 @@ export default function FormDialog() {
           onSubmit: (event) => {
             event.preventDefault();
             handleSubmit();
-            // handleClose();
+            handleClose();
           },
         }}
       >
@@ -82,14 +142,23 @@ export default function FormDialog() {
 
             <Box>
               <Typography gutterBottom>End Time</Typography>
-              <DateTime label={"End time"}/>
+              <DateTime label={"End time"} state={endTime} setState={(e) => setEndTime(e.target.value)}/>
             </Box>
           </Box>
           
           <Box>
             <Typography gutterBottom>Exercises</Typography>
-            <MultipleSelect state={exercises} setState={(e, obj) => {setExercises(e.target.value) 
-              setExerciseId(obj.key)}}/>
+            <MultipleSelect state={exercises} setState={
+                (e, obj) => {setExercises(e.target.value)
+                
+                const key = obj.key.replace(".$", "");
+
+                if (exerciseId.includes(key)) {
+                  setExerciseId(exerciseId.filter((exercise) => key !== exercise))
+                } else {
+                  setExerciseId([...exerciseId, key])}
+                }
+              }/>
           </Box>
 
           <Box sx={{ width: "100%" }}>
