@@ -19,11 +19,11 @@ module.exports = {
         }
     },
 
-    async createWorkout(req, res) {
+    async createWorkout( req, res) {
         try {
             const data = await Workout.create(req.body);
             await User.findOneAndUpdate(
-                { _id: req.body.userId },
+                { _id: req.body.user_id },
                 { $addToSet: { workoutHistory: data._id }},
                 { runValidators: true, new: true }
             )

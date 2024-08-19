@@ -2,15 +2,26 @@ const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 module.exports = {
-  async getSingleUser(req, res) {
-    try {
-      const data = await User.findOne({ _id: req.params.userId })
-        .populate("favoriteExercises")
-        .populate("workoutHistory");
-      res.json(data);
-    } catch (err) {
-      res.status(500).json(err);
+  async getSingleUser({ user = null, params }, res) {
+    const foundUser = await User.findOne({
+      $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
+      })
+      .populate("favoriteExercises")
+      .populate("workoutHistory");
+
+    if (!foundUser) {
+      return res.status(400).json({ message: 'Cannot find a user with this id!' });
     }
+
+    res.json(foundUser);
+    // try {
+    //   const data = await User.findOne({ _id: req.params.userId })
+    //     .populate("favoriteExercises")
+    //     .populate("workoutHistory");
+    //   res.json(data);
+    // } catch (err) {
+    //   res.status(500).json(err);
+    // }
   },
 
   async createUser(req, res) {
@@ -53,11 +64,11 @@ module.exports = {
     }
   },
 
-  async updateUser(req, res) {
+  async updateUser({ user, body }, res) {
     try {
       const data = await User.findOneAndUpdate(
-        { _id: req.params.userId },
-        { $set: req.body },
+        { _id: user._id },
+        { $set: body },
         { runValidators: true, new: true }
       );
       res.json(data);
