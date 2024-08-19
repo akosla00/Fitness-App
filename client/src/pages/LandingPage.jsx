@@ -26,7 +26,7 @@ function LandingPage () {
                 display: 'flex',
                 justifyContent: 'space-evenly',
                 alignItems: 'center',
-                height: "100%",
+                minHeight: "75vh",
                 bgcolor: "#bfd8ff",
                 position: 'relative',
                 p: 5
@@ -36,7 +36,7 @@ function LandingPage () {
                     <p>Begin your health journey with our fitness tracker and premade workout plans.</p>
                     <button>Start Now</button>
                 </Box>
-                <Box sx={{position: 'relative'}}>
+                <Box id="logo" sx={{position: 'relative'}}>
                     <img className='f-picture' src={squat}/>
                     <DemoPaper id="hero-sign-1" className='clear' variant="elevation">Set Goals!</DemoPaper>
                     <DemoPaper id="hero-sign-2" className='clear' variant="elevation">Workout plans!</DemoPaper>
