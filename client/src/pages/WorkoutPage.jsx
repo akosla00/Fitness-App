@@ -37,7 +37,7 @@ function WorkoutPage() {
 
     return (
         <>
-            <Box id="exercise-page" sx={{ height: '100vh' }}>
+            <Box id="exercise-page" sx={{ height: '100%' }}>
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'center',

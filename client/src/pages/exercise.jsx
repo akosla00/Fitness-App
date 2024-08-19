@@ -105,7 +105,7 @@ function Exercises() {
 
     return (
         <Box id="exercise-page" sx={{
-            height: '100vh'
+            height: '100%'
         }}>
             <Box sx={{
                 display: 'flex',

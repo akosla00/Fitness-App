@@ -1,3 +1,12 @@
-#github-links li{
-    list-style-type:none
+#github-links {
+    text-align: center;
+    font-family: 'Lexend';
+}
+
+#github-links ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Lexend';
 }
