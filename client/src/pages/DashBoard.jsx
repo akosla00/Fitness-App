@@ -48,7 +48,7 @@ function DashBoard () {
                   data: [ { id: 0, value: 10, label: 'Distance' , color: 'Green'},
                   
                   { id: 1, value: 15, label: 'Time' },
-                  { id: 2, value: 20, label: 'Energy Burn ',color: "red" }, ],
+                  { id: 2, value: 20, label: 'workout dificulty ',color: "red" }, ],
                   innerRadius: 30,
                   outerRadius: 100,
                   paddingAngle: 5,

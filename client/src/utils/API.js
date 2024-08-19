@@ -45,21 +45,13 @@ export const getPremadeWorkouts = async () => {
   return data;
 }
 
-export const createWorkout = async (workout, token) => {
-  return fetch ('/api/workouts', {
+export const addWorkout = async (workoutData, token) => {
+  return fetch('api/workouts', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(workout),
+    body: JSON.stringify(workoutData)
   });
 }
-
-export const getWorkouts = async () => {
-  const response = await fetch("/api/workouts", {
-    method: "GET",
-  });
-  const data = await response.json();
-  return data;
-};

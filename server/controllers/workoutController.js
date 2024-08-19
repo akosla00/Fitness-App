@@ -19,19 +19,24 @@ module.exports = {
     }
   },
 
-  async getWorkouts(req, res) {
-    try {
-      const data = await Workout.find({ premade: false }).populate("exercises");
-      res.json(data);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
+    async createWorkout( req, res) {
+        try {
+            const data = await Workout.create(req.body);
+            await User.findOneAndUpdate(
+                { _id: req.body.user_id },
+                { $addToSet: { workoutHistory: data._id }},
+                { runValidators: true, new: true }
+            )
+            res.json(data);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
 
   async createWorkout(req, res) {
 
     console.log(req.user._id);
-    
+
     try {
       const data = await Workout.create(req.body);
 

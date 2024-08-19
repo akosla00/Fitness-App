@@ -3,7 +3,7 @@ const { Exercise } = require('../models');
 module.exports = {
     async getExercises(req, res) {
         try {
-            const data = await Exercise.find();
+            const data = await Exercise.find().sort({name: 1});
             res.json(data);
         } catch (err) {
             res.status(500).json(err);

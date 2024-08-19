@@ -1,7 +1,12 @@
 const { Schema, model } = require('mongoose');
+const autoIncrementFactory =  require('mongoose-sequence');
+const connection = require('../config/connection')
+
+const autoIncrement = autoIncrementFactory(connection);
 
 const exerciseSchema = new Schema(
   {
+    _id: Number,
     name: {
         type: String,
         required: true,
@@ -26,7 +31,13 @@ const exerciseSchema = new Schema(
         type: Number
     },
   },
+  {
+    _id: false
+  }
 );
+
+// Use autoIncrement plugin
+exerciseSchema.plugin(autoIncrement);
 
 const Exercise = model('exercise', exerciseSchema);
 
