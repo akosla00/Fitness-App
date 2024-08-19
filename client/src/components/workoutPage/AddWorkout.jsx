@@ -116,7 +116,7 @@ export default function FormDialog() {
           },
         }}
       >
-        <DialogTitle variant="h4">Add Workout</DialogTitle>
+        <DialogTitle variant="h4" color="black">Add Workout</DialogTitle>
         <DialogContent>
           <Box>
             <Typography gutterBottom>Name</Typography>

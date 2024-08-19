@@ -14,11 +14,13 @@ function Footer () {
                 m: 2,
             }}>
                 <h3>Github links</h3>
-                    <li>Link your github here</li>
-                    <li>Link your github here</li>
-                    <li>Link your github here</li>
-                    <li>Link your github here</li>
-                    <li><a href="https://github.com/lyoko90210">Daniel Dennis's Github</a></li>
+                <ul>
+                    <li><a href="https://github.com/akosla00">Alec Kosla</a></li>
+                    <li><a href="https://github.com/lyoko90210">Daniel Dennis</a></li>
+                    <li><a href="https://github.com/Giovanni-Ramirez">Giovanni Ramirez</a></li>
+                    <li><a href="https://github.com/kristyyip">Kristy Yip</a></li>
+                    <li><a href="https://github.com/SkylerRhys">Skyler Jones</a></li>
+                </ul>
             </Box>
         </Box>
     )    
