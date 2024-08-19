@@ -1,7 +1,6 @@
 import {useState, useEffect, Fragment} from 'react';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Box, Slider, Stack} from '@mui/material';
 import dayjs from 'dayjs';
-import { createWorkout, getWorkouts } from '../../utils/API';
 import Auth from '../../utils/auth';
 import { saveWorkouts, getSavedWorkouts } from '../../utils/localstorage';
 
@@ -10,7 +9,6 @@ import MultipleSelect from './ExerciseMultiSelect';
 import DateTime from './DateTime';
 
 import { addWorkout, getMe } from '../../utils/API';
-import Auth from '../../utils/auth';
 
 
 function valuetext(value) {
