@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Strength Workout",
+        "exercises": [1, 2, 3, 4, 5],
+        "sets": 3,
+        "premade": true
+    },
+    {
+        "name": "Cardio Workout",
+        "exercises": [6, 9, 11, 17],
+        "sets": 5,
+        "premade": true
+    },
+    {
+        "name": "Stretching Cooldown",
+        "exercises": [20, 21, 22, 23, 24, 25, 26],
+        "sets": 1,
+        "premade": true
+    }
+]
