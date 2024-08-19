@@ -25,7 +25,7 @@ function Navbar() {
   const pages = [
     { label: "Exercises", onClick: () => navigate("/exercises") },
     { label: "Dashboard", onClick: () => navigate("/Dashboard") },
-    { label: "Plans", onClick: () => navigate("/Plans") },
+    { label: "Workouts", onClick: () => navigate("/workouts") },
   ]
   // const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const settings = [

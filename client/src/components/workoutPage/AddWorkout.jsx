@@ -1,6 +1,9 @@
 import {useState, Fragment} from 'react';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Box, Slider, Stack} from '@mui/material';
 import dayjs from 'dayjs';
+import { createWorkout, getWorkouts } from '../../utils/API';
+import Auth from '../../utils/auth';
+import { saveWorkouts, getSavedWorkouts } from '../../utils/localstorage';
 
 
 // import child components
@@ -20,6 +23,7 @@ export default function FormDialog() {
   const [exercises, setExercises] = useState([]);
   const [exerciseId, setExerciseId] = useState([]);
   const [numOfSets, setNumOfSets] = useState(0);
+  const [savedWorkouts, setSavedWorkouts] = useState(getSavedWorkouts());
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,14 +33,36 @@ export default function FormDialog() {
     setOpen(false);
   };
 
-  const handleSubmit = () => {
+
+  const handleSubmit = async () => {
     const formData = {
       name: nameInput,
-      exercises: exercises,
+      // exercises: exercises,
       sets: numOfSets
     }
 
-    console.log(formData)
+    console.log(formData);
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const response = await createWorkout(formData, token);
+
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
+      }
+
+    } catch (err) {
+      console.log('Whoopsies!');
+    }
+
+
+
+
   }
 
   return (
@@ -85,10 +111,10 @@ export default function FormDialog() {
               <DateTime label={"End time"}/>
             </Box>
           </Box>
-          
+
           <Box>
             <Typography gutterBottom>Exercises</Typography>
-            <MultipleSelect state={exercises} setState={(e, obj) => {setExercises(e.target.value) 
+            <MultipleSelect state={exercises} setState={(e, obj) => {setExercises(e.target.value)
               setExerciseId(obj.key)}}/>
           </Box>
 
@@ -109,7 +135,7 @@ export default function FormDialog() {
             />
           </Box>
 
-          
+
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

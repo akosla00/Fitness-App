@@ -5,12 +5,13 @@ const {
     updateWorkout,
     getSingleWorkout,
     deleteWorkout,
-    getPremadeWorkouts
+    getPremadeWorkouts,
+    getWorkouts
 } = require('../../controllers/workoutController.js');
 
 const { authMiddleware } = require('../../utils/auth.js');
 
-router.route('/').post(createWorkout).get(getPremadeWorkouts);
+router.route('/').post(authMiddleware, createWorkout).get(getPremadeWorkouts).get(getWorkouts);
 
 router.route('/:userId').get(getWorkoutsByUser);
 
