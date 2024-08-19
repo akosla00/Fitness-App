@@ -5,12 +5,13 @@ import { useState, useEffect } from "react";
 import { getPremadeWorkouts } from "../utils/API";
 
 import AddWorkout from '../components/workoutPage/AddWorkout.jsx';
-// import WorkoutPlans from '../components/workoutPage/WorkoutPlans.jsx';
+import { useLoginContext } from "../utils/LoginContext";
 
 // Import styling css
 import '../assets/css/exerciseAndWorkout.css';
 
 function WorkoutPage() {
+    const { loggedIn } = useLoginContext();
     const [workouts, setWorkouts] = useState([]);
 
     const resolveRaceIssue = async () => {
@@ -50,14 +51,14 @@ function WorkoutPage() {
                 }}>
                     <h1>Workouts</h1>
                 </Box>
-                <AddWorkout />
+                {loggedIn && <AddWorkout />}
 
                 <h2>Try some of our premade workouts!</h2>
                 <Gridbox sx={{
                     display:'grid',
                 }}>
                     {workouts.map((workout) => (
-                        <Card sx={{ maxWidth: 345 }} key={workout._id}>
+                        <Card sx={{ maxWidth: 400, m: 3, bgcolor: '#f2f2f2',}} key={workout._id}>
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                 {workout.name}
@@ -66,7 +67,15 @@ function WorkoutPage() {
                                 <List>
                                     {
                                         workout.exercises.map((exercise) => (
+                                        !exercise.reps ?
                                         <ListItem key={exercise._id}>
+                                        
+                                        <ListItemText
+                                            primary={exercise.name}
+                                        />
+                                        </ListItem> :
+                                        <ListItem key={exercise._id}>
+                                        
                                         <ListItemText
                                             primary={exercise.name}
                                             secondary={`Reps: ${exercise.reps}`}
@@ -76,9 +85,11 @@ function WorkoutPage() {
                                 </List>
                                 <Typography>Number of Sets: {workout.sets}</Typography>
                             </CardContent>
-                            <CardActions>
+                            {loggedIn && 
+                                <CardActions>
                                 <Button size="small">Add</Button>
-                            </CardActions>
+                                </CardActions>
+                            }
                         </Card>
                     ))}
                 </Gridbox>

@@ -18,17 +18,6 @@ const MenuProps = {
   },
 };
 
-
-
-// function getStyles(name, state, theme) {
-//   return {
-//     fontWeight:
-//       state.indexOf(name) === -1
-//         ? theme.typography.fontWeightRegular
-//         : theme.typography.fontWeightMedium,
-//   };
-// }
-
 export default function MultipleSelect({ state, setState }) {
   const [names, setNames] = useState([]);
   const resolveRaceIssue = async () => {
@@ -39,17 +28,6 @@ export default function MultipleSelect({ state, setState }) {
     resolveRaceIssue();
   }, []);
   const theme = useTheme();
-  // const [exerciseName, setExerciseName] = React.useState([]);
-
-  // const handleChange = (event) => {
-  //   const {
-  //     target: { value },
-  //   } = event;
-  //   setState(
-  //     // On autofill we get a stringified value.
-  //     typeof value === 'string' ? value.split(',') : value,
-  //   );
-  // };
 
   return (
     <div>
@@ -69,7 +47,6 @@ export default function MultipleSelect({ state, setState }) {
               key={_id}
               id={_id}
               value={name}
-            // style={getStyles(name, state, theme)}
             >
               {name}
             </MenuItem>

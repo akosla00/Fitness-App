@@ -77,7 +77,6 @@ export default function FormDialog() {
       user_id: userData._id
     }
 
-    console.log(formData);
     try {
       const response = await addWorkout(formData, token);
 
