@@ -96,9 +96,14 @@ export default function FormDialog() {
 
   return (
     <Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        + Add Workout
-      </Button>
+      <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+      }}>
+        <Button id='add-button' onClick={handleClickOpen}>
+          Add a Workout
+        </Button>
+      </Box>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -107,7 +112,7 @@ export default function FormDialog() {
           onSubmit: (event) => {
             event.preventDefault();
             handleSubmit();
-            // handleClose();
+            handleClose();
           },
         }}
       >
