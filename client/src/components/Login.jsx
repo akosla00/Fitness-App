@@ -75,7 +75,7 @@ const Login = (props) => {
           onSubmit={handleSubmit}
           style={{ width: "25%", marginLeft: 300, marginTop: 100 }}
         >
-          <h2>Welcome back to Fit Flex!</h2>
+          <h2 style={{ color: "black" }}>Welcome back to Fit Flex!</h2>
           <TextField
             label="Email"
             onChange={(e) => setEmail(e.target.value)}
@@ -122,7 +122,12 @@ const Login = (props) => {
       <Box>
         <img
           src={hoopsMan}
-          style={{ maxHeight: 700, marginTop: 3, marginLeft: 10, borderRadius: 4 }}
+          style={{
+            maxHeight: 700,
+            marginTop: 3,
+            marginLeft: 10,
+            borderRadius: 4,
+          }}
         />
       </Box>
     </div>

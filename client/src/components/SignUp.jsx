@@ -76,7 +76,7 @@ const Signup = (props) => {
           onSubmit={handleSubmit}
           style={{ width: "25%", marginLeft: 300, marginTop: 80 }}
         >
-          <h2>Welcome to Fit Flex</h2>
+          <h2 style={{ color: "black" }}>Welcome to Fit Flex</h2>
           <TextField
             label="Email"
             onChange={(e) => setEmail(e.target.value)}
