@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -18,7 +18,7 @@ const MenuProps = {
   },
 };
 
-const names = await getExercises();
+
 
 // function getStyles(name, state, theme) {
 //   return {
@@ -29,7 +29,15 @@ const names = await getExercises();
 //   };
 // }
 
-export default function MultipleSelect({state, setState}) {
+export default function MultipleSelect({ state, setState }) {
+  const [names, setNames] = useState([]);
+  const resolveRaceIssue = async () => {
+    const data = await getExercises();
+    return setNames(data);
+  }
+  useEffect(() => {
+    resolveRaceIssue();
+  }, []);
   const theme = useTheme();
   // const [exerciseName, setExerciseName] = React.useState([]);
 
@@ -56,12 +64,12 @@ export default function MultipleSelect({state, setState}) {
           input={<OutlinedInput label="Select option(s)" />}
           MenuProps={MenuProps}
         >
-          {names.map(({name, _id}) => (
+          {names.map(({ name, _id }) => (
             <MenuItem
               key={_id}
               id={_id}
               value={name}
-              // style={getStyles(name, state, theme)}
+            // style={getStyles(name, state, theme)}
             >
               {name}
             </MenuItem>

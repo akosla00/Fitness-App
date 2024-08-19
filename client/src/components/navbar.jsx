@@ -25,7 +25,7 @@ function Navbar() {
   const pages = [
     { label: "Exercises", onClick: () => navigate("/exercises") },
     { label: "Dashboard", onClick: () => navigate("/Dashboard") },
-    { label: "Plans", onClick: () => navigate("/Plans") },
+    { label: "Workouts", onClick: () => navigate("/workouts") },
   ]
   // const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const settings = [
@@ -118,7 +118,6 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -127,14 +126,14 @@ function Navbar() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: "Lexend",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            Fit Flex
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (

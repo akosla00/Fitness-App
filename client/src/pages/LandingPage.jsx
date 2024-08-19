@@ -7,7 +7,6 @@ import { styled } from '@mui/material/styles';
 
 // Import the infinite loop
 import InfiniteLoop from '../components/InfiniteLoop';
-import Footer from '../components/Footer';
 
 
 const DemoPaper = styled(Paper)(({ theme }) => ({
@@ -27,24 +26,25 @@ function LandingPage () {
                 display: 'flex',
                 justifyContent: 'space-evenly',
                 alignItems: 'center',
-                height: "80vh",
+                minHeight: "75vh",
                 bgcolor: "#bfd8ff",
                 position: 'relative',
+                p: 5
                 }}>
                 <Box sx={{ width: 600}}>
-                    <h1>Get Fit, Get Strong,<br/>Get Healthy with Fit Flow!</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sed facere dolorum consectetur earum sapiente soluta eum quos, quia iure quibusdam laboriosam culpa dignissimos aut delectus inventore iste ipsa placeat!</p>
+                    <h1>Get Fit, Get Strong,<br/>Get Healthy with Fit Flex!</h1>
+                    <p>Begin your health journey with our fitness tracker and premade workout plans.</p>
                     <button>Start Now</button>
                 </Box>
-                <Box sx={{position: 'relative'}}>
+                <Box id="logo" sx={{position: 'relative'}}>
                     <img className='f-picture' src={squat}/>
                     <DemoPaper id="hero-sign-1" className='clear' variant="elevation">Set Goals!</DemoPaper>
                     <DemoPaper id="hero-sign-2" className='clear' variant="elevation">Workout plans!</DemoPaper>
-                    <DemoPaper id="hero-sign-3" className='clear' variant="elevation">Something else!</DemoPaper>
+                    <DemoPaper id="hero-sign-3" className='clear' variant="elevation">Track progress!</DemoPaper>
                 </Box>    
             </Box>
             <InfiniteLoop/>
-            <Box>
+            {/* <Box>
                 <Box>
                     <h1>Feature 1 of website</h1>
                 </Box>
@@ -54,8 +54,7 @@ function LandingPage () {
                 <Box>
                     <h1>Feature 3 of website</h1>
                 </Box>
-            </Box>
-            <Footer />
+            </Box> */}
         </div>
     )
 }
