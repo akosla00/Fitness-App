@@ -5,12 +5,13 @@ import { useState, useEffect } from "react";
 import { getPremadeWorkouts } from "../utils/API";
 
 import AddWorkout from '../components/workoutPage/AddWorkout.jsx';
-// import WorkoutPlans from '../components/workoutPage/WorkoutPlans.jsx';
+import { useLoginContext } from "../utils/LoginContext";
 
 // Import styling css
 import '../assets/css/exerciseAndWorkout.css';
 
 function WorkoutPage() {
+    const { loggedIn } = useLoginContext();
     const [workouts, setWorkouts] = useState([]);
 
     const resolveRaceIssue = async () => {
@@ -50,7 +51,7 @@ function WorkoutPage() {
                 }}>
                     <h1>Workouts</h1>
                 </Box>
-                <AddWorkout />
+                {loggedIn && <AddWorkout />}
 
                 <h2>Try some of our premade workouts!</h2>
                 <Gridbox sx={{
@@ -84,9 +85,11 @@ function WorkoutPage() {
                                 </List>
                                 <Typography>Number of Sets: {workout.sets}</Typography>
                             </CardContent>
-                            <CardActions>
+                            {loggedIn && 
+                                <CardActions>
                                 <Button size="small">Add</Button>
-                            </CardActions>
+                                </CardActions>
+                            }
                         </Card>
                     ))}
                 </Gridbox>
