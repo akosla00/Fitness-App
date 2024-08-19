@@ -41,7 +41,7 @@ function DashBoard () {
               </Fab>
             </Activitytrackers>
 
-            <Activitytrackers key={0} index={1} height={410}>
+            <Activitytrackers key={1} index={1} height={410}>
               {/* pie add color to data objects */}
               <PieChart series={[{
 
@@ -65,7 +65,7 @@ function DashBoard () {
               </Fab>
             </Activitytrackers>
 
-            <Activitytrackers key={0} index={2} height={415}>
+            <Activitytrackers key={2} index={2} height={415}>
               <BarChart xAxis={[
                 {
                   id: 'barCategories',
@@ -86,7 +86,7 @@ function DashBoard () {
               </Fab>
             </Activitytrackers>
 
-            <Activitytrackers key={0} index={3} height={415}>
+            <Activitytrackers key={3} index={3} height={415}>
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                 <img src={picture} alt="workouts" height={320} />
               </div>

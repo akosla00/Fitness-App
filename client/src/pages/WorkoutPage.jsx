@@ -57,7 +57,7 @@ function WorkoutPage() {
                     display:'grid',
                 }}>
                     {workouts.map((workout) => (
-                        <Card sx={{ maxWidth: 345 }} key={workout._id}>
+                        <Card sx={{ maxWidth: 400, m: 3, bgcolor: '#f2f2f2',}} key={workout._id}>
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                 {workout.name}
@@ -66,7 +66,15 @@ function WorkoutPage() {
                                 <List>
                                     {
                                         workout.exercises.map((exercise) => (
+                                        !exercise.reps ?
                                         <ListItem key={exercise._id}>
+                                        
+                                        <ListItemText
+                                            primary={exercise.name}
+                                        />
+                                        </ListItem> :
+                                        <ListItem key={exercise._id}>
+                                        
                                         <ListItemText
                                             primary={exercise.name}
                                             secondary={`Reps: ${exercise.reps}`}
