@@ -31,9 +31,12 @@ const MenuProps = {
 
 export default function MultipleSelect({ state, setState }) {
   const [names, setNames] = useState([]);
-  useEffect(async () => {
+  const resolveRaceIssue = async () => {
     const data = await getExercises();
-    setNames(data);
+    return setNames(data);
+  }
+  useEffect(() => {
+    resolveRaceIssue();
   }, []);
   const theme = useTheme();
   // const [exerciseName, setExerciseName] = React.useState([]);

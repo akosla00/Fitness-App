@@ -12,9 +12,15 @@ import '../assets/css/exerciseAndWorkout.css';
 
 function WorkoutPage() {
     const [workouts, setWorkouts] = useState([]);
-    useEffect(async () => {
+
+    const resolveRaceIssue = async () => {
         const data = await getPremadeWorkouts();
-        setWorkouts(data);
+        return setWorkouts(data);
+
+    }
+   
+    useEffect(() => {
+        resolveRaceIssue();
     }, []);
 
     const Gridbox = styled('div')(({ theme }) => ({

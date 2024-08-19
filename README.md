@@ -1,8 +1,21 @@
-# React + Vite
+# Fitness-App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Fit Flex
 
-Currently, two official plugins are available:
+Fit Flex is a fitness tracking web application that can be used to create new workouts, track your progress, and find new exercises to help you reach your fitness goals!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+
+- React
+- Javascript
+- Node.js
+- Express.js
+- Dayjs
+- JWT Webtoken
+- Mongo/Mongoose
+
+  ![image](https://github.com/user-attachments/assets/3b6e511f-1601-4fe2-9066-db49417c3a93)
+
+  
+https://fitness-app-cxsf.onrender.com/Home
+
